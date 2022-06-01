@@ -22,6 +22,11 @@ export default class Product {
     }
     return true;
   }
+
+  get id() {
+    return this._id;
+  }
+
   changePrice(newPrice: number) {
     this._price = newPrice;
     this.validate();

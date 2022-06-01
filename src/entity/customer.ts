@@ -1,16 +1,25 @@
 import Address from "./address";
 
 export default class Customer {
-  _id: string;
-  _name: string;
-  _address!: Address;
-  _active: boolean;
+  private _id: string;
+  private _name: string;
+  private _address!: Address;
+  private _active: boolean;
 
   constructor(id: string, name: string) {
     this._id = id;
     this._name = name;
     this._active = true;
     this.validate();
+  }
+
+  isActive() {
+    return this._active;
+  }
+
+
+  get name() {
+    return this._name;
   }
 
   validate() {
@@ -27,7 +36,7 @@ export default class Customer {
   }
 
   activate() {
-    if(this._address !== undefined){
+    if(this._address === undefined){
       throw new Error("The customer need to have an address to activate");
     }
 

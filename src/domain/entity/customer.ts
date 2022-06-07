@@ -14,6 +14,10 @@ export default class Customer {
     this.validate();
   }
 
+  changeAddress(address: Address): void {
+    this._address = address;
+  }
+
   isActive() {
     return this._active;
   }
@@ -24,6 +28,10 @@ export default class Customer {
 
   get name() {
     return this._name;
+  }
+
+  get Address(): Address {
+    return this._address;
   }
 
   validate() {

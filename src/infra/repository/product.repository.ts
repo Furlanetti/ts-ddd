@@ -10,12 +10,14 @@ export default class ProductRepository implements ProductRepositoryInterface {
       price: entity.price,
     });
   }
+
   async update(entity: Product): Promise<void> {
     await ProductModel.update(
       { name: entity.name, price: entity.price },
       { where: { id: entity.id } }
     );
   }
+
   async find(id: string): Promise<Product> {
     const productModel = await ProductModel.findOne({ where: { id } });
 
@@ -25,6 +27,7 @@ export default class ProductRepository implements ProductRepositoryInterface {
 
     return new Product(productModel.id, productModel.name, productModel.price);
   }
+
   async findAll(): Promise<Product[]> {
     const productModels = await ProductModel.findAll();
 

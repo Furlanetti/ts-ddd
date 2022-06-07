@@ -14,23 +14,36 @@ export default class Address {
   }
 
   validate() {
-    if(this._street.length === 0) {
+    if (this._street.length === 0) {
       throw new Error("Street is required");
     }
-    if(this._zip.length === 0) {
+    if (this._zip.length === 0) {
       throw new Error("ZipCode is required");
     }
-    if(this._city.length === 0) {
+    if (this._city.length === 0) {
       throw new Error("City is required");
     }
-    if(this._number === 0) {
+    if (this._number === 0) {
       throw new Error("Number is required");
     }
   }
+  get number(): number {
+    return this._number;
+  }
 
-  toString(){
+  get zip(): string {
+    return this._zip;
+  }
+
+  get city(): string {
+    return this._city;
+  }
+
+  get street(): string {
+    return this._street;
+  }
+
+  toString() {
     return `${this._street},${this._number}, ${this._zip}, ${this._city}`;
   }
 }
-
-
